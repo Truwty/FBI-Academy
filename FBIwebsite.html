@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FBI Academy: Training Grounds - Train to become an elite federal agent.">
+    <meta name="author" content="FBI Academy Team">
+    <title>FBI Academy: Training Grounds</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "FBI Academy: Training Grounds",
+            "url": "https://www.roblox.com/games/your-game-id",
+            "logo": "https://tr.rbxcdn.com/180DAY-e59ef4e8c7e2be03ae0bc325f72d079b/150/150/Image/Webp/noFilter"
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Go to Home">Home</a></li>
+                <li><a href="#about" aria-label="Learn About the Academy">About</a></li>
+                <li><a href="#roles" aria-label="Explore Roles">Roles</a></li>
+                <li><a href="#missions" aria-label="View Available Missions">Missions</a></li>
+                <li><a href="#community" aria-label="Join the Community">Community</a></li>
+                <li><a href="#contact" aria-label="Contact Us">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home" class="section fade-in">
+        <h1>Welcome to FBI Academy: Training Grounds</h1>
+        <p>Prepare for an elite career as an FBI agent with challenging missions and specialised training.</p>
+        <a href="https://www.roblox.com/games/your-game-id" class="cta-btn" aria-label="Start Training">Start Training</a>
+    </div>
+
+    <div id="about" class="section fade-in">
+        <h2>About the Academy</h2>
+        <p>At the FBI Academy, you will undergo intense training to become part of an elite team of federal agents. Our program is designed to prepare recruits for various real-world operations and tactical missions.</p>
+    </div>
+
+    <div id="roles" class="section fade-in">
+        <h2>Choose Your Role</h2>
+        <p>Specialise in a variety of roles within the FBI, each with unique missions and responsibilities.</p>
+        <div class="role-card fade-in">
+            <img src="https://cdna.artstation.com/p/assets/images/images/042/000/772/smaller_square/derek-fernald-law.jpg?1633318269" alt="FBI Agent" loading="lazy">
+            <h3>FBI Agent</h3>
+            <p>Become a part of the Federal Bureau of Investigation, handling criminal investigations, counterintelligence, and law enforcement operations.</p>
+        </div>
+        <div class="role-card fade-in">
+            <img src="https://pbs.twimg.com/media/E75B8ZwX0AQlugp.jpg:large" alt="SWAT Officer" loading="lazy">
+            <h3>SWAT Officer</h3>
+            <p>Join the Special Weapons and Tactics team, handling high-risk operations, hostage rescues, and tactical assaults.</p>
+        </div>
+        <div class="role-card fade-in">
+            <img src="https://cdna.artstation.com/p/assets/images/images/047/401/472/large/lc-s-portfolio-done-eb0-fanart-png.jpg?1647504677" alt="Investigator" loading="lazy">
+            <h3>Investigator</h3>
+            <p>Work as a specialist in criminal investigations, gathering evidence, and solving cases that require meticulous attention to detail.</p>
+        </div>
+        <div class="role-card fade-in">
+            <img src="https://cdna.artstation.com/p/assets/images/images/016/725/326/large/serverenabled-ac11e9e124e551c81d16d714f6683baf.jpg?" alt="Counterterrorism Officer" loading="lazy">
+            <h3>Counterterrorism Officer</h3>
+            <p>Specialized in neutralizing terrorism threats and operations.</p>
+        </div>
+    </div>
+
+    <div id="missions" class="section fade-in">
+        <h2>Join a Mission</h2>
+        <p>Engage in intense missions that test your skills and teamwork. Whether it's a high-speed chase, tactical assault, or counterterrorism operation, each mission is a new challenge.</p>
+    </div>
+
+    <div id="community" class="section fade-in">
+        <h2>Join Our Community</h2>
+        <p>Connect with other recruits, share your experiences, and take part in exclusive in-game events.</p>
+        <div class="discord">
+            <p>Join our Discord community:</p>
+            <a href="https://discord.gg/4tPb6xFsKp" target="_blank" aria-label="Join our Discord Community">Join Discord</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 FBI Academy: Training Grounds | All Rights Reserved</p>
+        <a href="#contact" aria-label="Contact Us">Contact</a>
+    </footer>
+
+    <button class="scroll-to-top" onclick="window.scrollTo(0, 0)" aria-label="Scroll to top">↑</button>
+
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <script>
+        // Scroll Animation Trigger
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const scrollHandler = () => {
+            fadeElements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                if (position < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', scrollHandler);
+        scrollHandler();
+
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopButton.style.display = "block";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+
+            // Update progress bar
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollPercentage = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+        };
+
+        // Smooth Scroll on Navigation Click
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger Menu for Mobile
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+
+    <style>
+        /* Dark Mode Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            padding: 50px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+        }
+
+        .cta-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .cta-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .role-card {
+            display: inline-block;
+            margin: 20px;
+            width: 250px;
+            text-align: center;
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .role-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .role-card:hover {
+            transform: scale(1.05);
+        }
+
+        .discord a {
+            color: #7289da;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .discord a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+
+        #progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #e0e0e0;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background-color: #007bff;
+            width: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+            }
+
+            .nav-links.active {
+                display: block;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</body>
+
+</html>
